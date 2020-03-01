@@ -1,0 +1,15 @@
+#util para dar una configuracion completa
+#define y levanta varios contenedores en un unico fichero
+version: '2'
+services:
+  web:
+    image: "appwildfly:latest"
+    ports:
+     - "8080:8080"
+     - "9990:9990"
+    links:
+     - basedatos:mimariadb
+  basedatos:
+    image: "image_mariadb:latest"
+    ports:
+     - "3306:3306"
